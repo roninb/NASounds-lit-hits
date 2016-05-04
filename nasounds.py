@@ -21,6 +21,7 @@ def home():
     url = "https://api.nasa.gov/planetary/sounds?limit=27&api_key=X5YrFuP5L7iwOrmQB9Xx9ggrlMlVq42s6Ew5LXCn"
     r = requests.get(url)
     j = json.loads(r.text)
+    print j
     return render_template("index.html", sounds=j["results"])
 
 @app.route("/rockets")
@@ -30,6 +31,17 @@ def rocks():
     j = json.loads(r.text)
     print j["results"]
     return render_template("index.html", sounds=j["results"])
+
+@app.route("/server")
+def better_implementation():
+    # search the same way as the other routes
+
+    # parse json for objects with durations shorter than 5 seconds
+
+    # download those mp3s from soundcloud
+
+    # return those in space.html to map to keys
+    return render_template("space.html")
 
 if __name__ == '__main__':
     app.secret_key = 'hackfsu'
