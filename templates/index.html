@@ -26,145 +26,21 @@ console.log(snippets);
 
 $(window).keypress(function(e) {
   console.log(e.keyCode);
-  if (e.keyCode === 0 || e.keyCode === 32) {
-    SC.stream('/tracks/' + snippets[0]).then(function(player){
-      player.seek(750);
-      player.play();
-      console.log(e.keyCod);
-    });
-  } if (e.keyCode === 97) {
-    SC.stream('/tracks/' + snippets[1]).then(function(player){
-      console.log(snippets[1]);
-      player.seek(750);
-      player.play();
-      player.setVolume(0);
-    });
-  } if (e.keyCode === 98) {
-    SC.stream('/tracks/' + snippets[2]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 99) {
-    SC.stream('/tracks/' + snippets[3]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 100) {
-    SC.stream('/tracks/' + snippets[4]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 101) {
-    SC.stream('/tracks/' + snippets[5]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 102) {
-    SC.stream('/tracks/' + snippets[6]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 103) {
-    SC.stream('/tracks/' + snippets[7]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 104) {
-    SC.stream('/tracks/' + snippets[8]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 105) {
-    SC.stream('/tracks/' + snippets[9]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 106) {
-    SC.stream('/tracks/' + snippets[10]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 107) {
-    SC.stream('/tracks/' + snippets[11]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 108) {
-    SC.stream('/tracks/' + snippets[12]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 109) {
-    SC.stream('/tracks/' + snippets[13]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 110) {
-    SC.stream('/tracks/' + snippets[14]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 111) {
-    SC.stream('/tracks/' + snippets[15]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 112) {
-    SC.stream('/tracks/' + snippets[16]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 113) {
-    SC.stream('/tracks/' + snippets[17]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 114) {
-    SC.stream('/tracks/' + snippets[18]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 115) {
-    SC.stream('/tracks/' + snippets[19]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 116) {
-    SC.stream('/tracks/' + snippets[20]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 117) {
-    SC.stream('/tracks/' + snippets[21]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 118) {
-    SC.stream('/tracks/' + snippets[22]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 119) {
-    SC.stream('/tracks/' + snippets[23]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 120) {
-    SC.stream('/tracks/' + snippets[24]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 121) {
-    SC.stream('/tracks/' + snippets[25]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
-  } if (e.keyCode === 122) {
-    SC.stream('/tracks/' + snippets[26]).then(function(player){
-      player.seek(750);
-      player.play();
-    });
+  if (e.keyCode === 0 || e.keyCode === 32 || (e.keyCode > 96 && e.keyCode < 123)) {
+    if (e.keyCode > 32) {
+      SC.stream('/tracks/' + snippets[e.keyCode - 96]).then(function(player) {
+        player.seek(750);
+        player.play();
+      });
+    }
+    else {
+      SC.stream('/tracks/' + snippets[0]).then(function(player) {
+        player.seek(750);
+        player.play();
+      });
+    }
   }
 });
+
 </script>
 </body>
