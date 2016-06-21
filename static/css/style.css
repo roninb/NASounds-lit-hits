@@ -1,6 +1,8 @@
 body {
   background-color: #161616;
 }
+
+/* Clipart */
 .showrocket {
   float: left;
   margin: 4em 1em;
@@ -22,6 +24,7 @@ body {
   margin: 5em 8em;
   width: 111px;
   height: 111px;
+  animation: appear 4s;
   background-image: url("/static/cosmonaut.png");
   background-size: 111px 111px;
 }
@@ -32,4 +35,22 @@ body {
   height: 72px;
   background-image: url("/static/shuttle.png");
   background-size: 150px 72px;
+}
+
+/* Animations */
+@keyframes appear {
+  from {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+  to {
+    transform-origin: center;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.appear {
+  animation-name: appear;
 }

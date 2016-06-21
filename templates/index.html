@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="/../static/css/style.css">
 </head>
 <body>
-  <p>Nasa sounds</p>
+  <p id="spawner">Nasa sounds</p>
 
 <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
 <script>
@@ -20,6 +20,37 @@ snippets.push({{ sound.id }});
 
 console.log(snippets);
 
+var clipart = function() {
+  var div = $("<div></div>");
+  switch (Math.ceil(Math.random()*4)) {
+    case 1:
+      $("<div></div>").attr({
+        id:'clipart',
+        'class':'showrocket'
+      }).appendTo('body');
+      break;
+    case 2:
+      $("<div></div>").attr({
+        id:'clipart',
+        'class':'showcosmonaut'
+      }).appendTo('body');
+      break;
+    case 3:
+      $("<div></div>").attr({
+        id:'clipart',
+        'class':'showasteroid'
+      }).appendTo('body');
+      break;
+    case 4:
+      $("<div></div>").attr({
+        id:'clipart',
+        'class':'showshuttle'
+      }).appendTo('body');
+      break;
+    default:
+  }
+};
+
 $(window).keypress(function(e) {
   console.log(e.which);
   if (e.which === 0 || e.which === 32 || (e.which > 96 && e.which < 123)) {
@@ -27,6 +58,7 @@ $(window).keypress(function(e) {
       SC.stream('/tracks/' + snippets[e.which - 96]).then(function(player) {
         player.seek(750);
         player.play();
+        clipart();
       });
     }
     else {
@@ -36,7 +68,9 @@ $(window).keypress(function(e) {
       });
     }
   }
+  $("#clipart").remove();
 });
+
 
 </script>
 </body>
