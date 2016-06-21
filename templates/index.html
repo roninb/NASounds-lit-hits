@@ -1,14 +1,10 @@
 <head>
   <title>LIT HITS</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="/../static/css/style.css">
 </head>
 <body>
   <p>Nasa sounds</p>
-  {% for song in sounds %}
-<p class="name">Name: {{ song.title }} </p>
-<p class="length">Length: {{ song.duration }} </p>
-<p class="link">Link: {{ song.stream_url }} </p>
-{% endfor %}
 
 <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
 <script>
@@ -25,10 +21,10 @@ snippets.push({{ sound.id }});
 console.log(snippets);
 
 $(window).keypress(function(e) {
-  console.log(e.keyCode);
-  if (e.keyCode === 0 || e.keyCode === 32 || (e.keyCode > 96 && e.keyCode < 123)) {
-    if (e.keyCode > 32) {
-      SC.stream('/tracks/' + snippets[e.keyCode - 96]).then(function(player) {
+  console.log(e.which);
+  if (e.which === 0 || e.which === 32 || (e.which > 96 && e.which < 123)) {
+    if (e.which > 32) {
+      SC.stream('/tracks/' + snippets[e.which - 96]).then(function(player) {
         player.seek(750);
         player.play();
       });

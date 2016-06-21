@@ -1,0 +1,35 @@
+body {
+  background-color: #161616;
+}
+.showrocket {
+  float: left;
+  margin: 4em 1em;
+  width: 30px;
+  height: 160px;
+  background-image: url("/static/soyuz.png");
+  background-size: 30px 160px;
+}
+.showasteroid {
+  float: left;
+  margin: 2em 6em;
+  width: 150px;
+  height: 108px;
+  background-image: url("/static/asteroid.jpg");
+  background-size: 150px 108px;
+}
+.showcosmonaut {
+  float: left;
+  margin: 5em 8em;
+  width: 111px;
+  height: 111px;
+  background-image: url("/static/cosmonaut.png");
+  background-size: 111px 111px;
+}
+.showshuttle {
+  float: left;
+  margin: 1em 9em;
+  width: 150px;
+  height: 72px;
+  background-image: url("/static/shuttle.png");
+  background-size: 150px 72px;
+}
